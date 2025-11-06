@@ -2,25 +2,24 @@ import java.awt.*;
 import java.awt.geom.Point2D;
 
 public class Triangle extends Shape {
-    private double side;
+    private int width;
+    private Color color;
 
-    public Triangle(int x, int y, double side) {
+
+
+    public Triangle(int x, int y, Color color, int width) {
         super(x, y);
-        this.side = side;
+        this.color = color;
+        this.width = width;
     }
 
     @Override
     public void paint() {
-        // Create the drawing world and turtle
-        World world = new World(400, 400);
-        Turtle turtle = new Turtle(world, getX(), getY());
-
-        turtle.setColor(Color.MAGENTA);
-        turtle.setPenWidth(3);
-
-        // Draw an equilateral triangle
+        int x  = super.getX();
+        int y = super.getY();
+        Turtle turtle = new Turtle(new World(), x, y);
         for (int i = 0; i < 3; i++) {
-            turtle.forward(side);
+            turtle.forward();
             turtle.turnRight(120);
         }
     }

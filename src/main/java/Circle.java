@@ -3,27 +3,25 @@ import java.awt.*;
 
 
 public class Circle extends Shape {
-    private double radius;
+    private int radius;
+    private Color color;
 
-    public Circle(int x, int y, double radius) {
+
+
+    public Circle(int x, int y, Color color, int radius) {
         super(x, y);
+        this.color = color;
         this.radius = radius;
     }
 
-
     @Override
     public void paint() {
-        // Create the drawing world and turtle
-        World world = new World(400, 400);
-        Turtle turtle = new Turtle(world, getX(), getY());
-
-        turtle.setColor(Color.BLUE);
-        turtle.setPenWidth(3);
-
-        // Draw the circle (360 small steps)
-        for (int i = 0; i < 360; i++) {
-            turtle.forward((2 * Math.PI * radius) / 360);
-            turtle.turnRight(1);
+        int x  = super.getX();
+        int y = super.getY();
+        Turtle turtle = new Turtle(new World(), x, y);
+        for (int i = 0; i < 36; i++) {
+            turtle.forward((2 * Math.PI * radius) / 36);
+            turtle.turnRight(10);
         }
     }
 

@@ -22,13 +22,6 @@ public abstract class Shape {
 
 
     public void paint() {
-        Turtle turtle = new Turtle(new World(),this.x,this.y);
-
-
-        for (int i = 0; i < 4; i++) {
-            turtle.forward();
-            turtle.turnRight(90);
-        }
 
     }
 }
