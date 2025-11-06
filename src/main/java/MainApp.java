@@ -27,7 +27,9 @@ public class MainApp {
         switch (selected) {
             case "1" -> drawSquare();
             case "2" -> drawX();
-            case "3" -> System.exit(0);
+            case "3" -> drawCircle();
+            case "4" -> drawTriangle();
+            case "5" -> System.exit(0);
             default -> System.out.println("Invalid Character or number is not an options...\n please try again\n");
 
         }
@@ -67,5 +69,14 @@ public class MainApp {
 
         turtle.penDown();
         turtle.forward(hypotenuse);
+    }
+    public static void drawCircle() {
+        Circle circle = new Circle(0, 0, 75);
+        circle.paint();
+    }
+
+    public static void drawTriangle() {
+        Triangle triangle = new Triangle(-50, -50, 100);
+        triangle.paint();
     }
 }
