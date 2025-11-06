@@ -1,23 +1,29 @@
 
 import java.awt.*;
-import java.awt.geom.Point2D;
 
 
-public abstract Shape {
-    protected Turtle turtle;
-    protected Point2D location;
-    protected Color color;
-    protected double border;
 
-    public Shape(Turtle turtle, Point2D location, Color color, double border) {
-        this.turtle = turtle;
-        this.location = location;
-        this.color = color;
-        this.border = border;
+public abstract class Shape {
+    private int x,y;
+    private Color color;
+    private double border;
+
+    public Shape(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 
-    // abstract method that child classes must define
-    public abstract void paint();
+
+    public void paint() {
+        Turtle turtle = new Turtle(new World(),this.x,this.y);
+
+
+        for (int i = 0; i < 4; i++) {
+            turtle.forward();
+            turtle.turnRight(90);
+        }
+
+    }
 }
 
 
